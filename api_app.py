@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Access environment variables
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', 'AIzaSyDXuvJKPzcXAcEhIsJi2M-kT7mfc8Q9MYQ')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 GEMINI_MODEL_NAME = os.getenv('GEMINI_MODEL_NAME', 'gemini-2.0-flash')
 API_TOKEN = os.getenv('API_TOKEN', '49092b2a30dc77e80c88e0550254ddd7928dea77103e0f05ad669ba81de92b04')
 PORT = int(os.getenv('PORT', 8000))
@@ -368,4 +368,5 @@ def health_check():
 # Run the application if this file is executed directly
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run("api_app:app", host=HOST, port=PORT, reload=DEBUG)
